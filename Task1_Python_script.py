@@ -7,8 +7,8 @@ import sys
 
 import requests
 # Code here - Import BeautifulSoup library
-# Code ends here
 from bs4 import BeautifulSoup
+# Code ends here
 
 
 # function to get the html source text of the medium article
@@ -16,8 +16,8 @@ def get_page():
     global url
 
     # Code here - Ask the user to input "Enter url of a medium article: " and collect it in url
-    # Code ends here
     url = input("Enter url of a medium article: ")
+    # Code ends here
 
     # handling possible error
     if not re.match(r'https?://medium.com/', url):
@@ -25,8 +25,8 @@ def get_page():
         sys.exit(1)
 
     # Code here - Call get method in requests object, pass url and collect it in res
-    # Code ends here
     res = requests.get(url)
+    # Code ends here
     res.raise_for_status()
     soup = BeautifulSoup(res.text, 'html.parser')
     return soup
@@ -61,10 +61,9 @@ def save_file(text):
 
     # Code here - write a file using with (2 lines)
     print(f'File saved in directory {fname}')
-    # Code ends here
     with open(fname, 'w', encoding='utf-8') as ftext:
         ftext.write(text)
-
+    # Code ends here
 
 if __name__ == '__main__':
     text = collect_text(get_page())
